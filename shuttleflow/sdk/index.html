@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Conflux Crosschain SDK - Conflux DEX Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Conflux Crosschain SDK";
+    var mkdocs_page_input_path = "shuttleflow\\sdk.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Conflux DEX Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Welcome to Conflux DEX</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">MatchFlow</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../matchflow/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../matchflow/ws/">WebSocket API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../matchflow/eip712/">EIP712 Signature</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">ShuttleFlow</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../json_rpc/">JSON RPC</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Conflux Crosschain SDK</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#conflux-shuttleflow-sdk">Conflux Shuttleflow SDK</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#functions">Functions</a></li>
+        
+            <li><a class="toctree-l4" href="#const-parameters-for-test">Const parameters for test</a></li>
+        
+            <li><a class="toctree-l4" href="#examples">Examples</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Conflux DEX Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>ShuttleFlow &raquo;</li>
+        
+      
+    
+    <li>Conflux Crosschain SDK</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="conflux-shuttleflow-sdk">Conflux Shuttleflow SDK</h1>
+<p>https://www.npmjs.com/package/conflux-crosschain</p>
+<h2 id="functions">Functions</h2>
+<pre><code>// get ethereum receive wallet address (used for both eth &amp; usdt) of user.
+// when user send money to receive wallet, custodian will directly deposit the 
+// money to conflux dex.
+// user_address: conflux address of user
+// node_url: url of running crosschain custodian node
+async function getUserReceiveWalletEth(user_address, node_url);
+
+// get bitcoin receive wallet address (used for both eth &amp; usdt) of user.
+// when user send money to receive wallet, custodian will directly deposit the 
+// money to conflux dex.
+// user_address: conflux address of user
+// node_url: url of running crosschain custodian node
+async function getUserReceiveWalletBtc(user_address, node_url);
+
+// burn request are processed by dex CRC-L and is deprecated in this sdk.
+
+// get user mint/burn operation list.
+// data: JSON object
+// {
+//    address: (String) user conflux address,
+//    types: (array of String) subset of {&quot;eth_mint&quot;, &quot;eth_burn&quot;, &quot;erc20_mint&quot;, &quot;erc20_burn&quot;, &quot;btc_mint&quot;, &quot;btc_burn&quot;},
+//    status: (array of String) subset of {&quot;doing&quot;, &quot;finished&quot;},
+// }
+// skip: the number of leading results to be ignored
+// cnt: the maximum number of results to return
+// node_url: url of running crosschain custodian node
+async function getUserOperationList(data, skip, cnt, node_url);
+</code></pre>
+
+<h2 id="const-parameters-for-test">Const parameters for test</h2>
+<pre><code>crosschain.test_conf = {
+  usdt_addr: // usdt address on rinkeby testnet,
+  node_url: // custodian node url,
+};
+</code></pre>
+
+<h2 id="examples">Examples</h2>
+<p>Import crosschain module.</p>
+<pre><code>const crosschain = require('crosschain');
+const test_conf = crosschain.test_conf;
+</code></pre>
+
+<p>get receive wallet address of a user:</p>
+<pre><code>let receive_wallet = crosschain.getUserReceiveWalletEth(
+    '0x6B6C3A1eC5C689C3dd158b1a6E8Bc722373a2BfA', 
+    test_conf.node_url
+);
+
+// send eth to receive_wallet, custodian will mint cETH for users and then transfer them to CRC-L.
+// user's cETH will be locked in the address of CRC-L of cETH.
+</code></pre>
+
+<p>get user operation list:</p>
+<pre><code>crosschain.getUserOperationList({
+  address: '0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5',// for example
+  types: ['eth_mint', 'eth_burn', 'erc20_mint'],
+  status: ['finished', 'doing'],
+}, 0, 100, test_conf.node_url).then(console.log);
+
+/*
+{ txs:
+   [ { type: 'eth_mint',
+       nonce_or_txid:
+        '0xacf0ae864689f19789ea43cdc3daf0fa41fdeb5392dfe5291c6aab1a4b6c128b',
+       amount: '1000000000000000',
+       user_addr: '0x65CF2b2c91e6eff901F10ab7363ae58cf1bfCCc5',
+       to_addr: '0x65CF2b2c91e6eff901F10ab7363ae58cf1bfCCc5',
+       signer: [ 'fafa' ],
+       has_signed: true,
+       need: 2,
+       status: 'doing' },
+     { type: 'cUSDT_mint',
+       nonce_or_txid:
+        '0x6eb599af3ab6242260dada6f6b57dad91faa64518d7cf1ac4a975f7f718a8b29',
+       amount: '100000',
+       user_addr: '0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5',
+       to_addr: '0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5',
+       status: 'finished' },
+     { type: 'cUSDT_mint',
+       nonce_or_txid:
+        '0x490ae855b02c50d57eafd96351359e21bc689a1385443f33a764121f22b84b2b',
+       amount: '100000',
+       user_addr: '0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5',
+       to_addr: '0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5',
+       status: 'finished' } ],
+  total: 3 }
+*/
+</code></pre>
+
+<p>get mintable status:</p>
+<pre><code>crosschain.isMintable(test_conf.node_url).then(console.log);
+
+true
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../json_rpc/" class="btn btn-neutral" title="JSON RPC"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2020 Conflux. All Rights Reserved.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../json_rpc/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
