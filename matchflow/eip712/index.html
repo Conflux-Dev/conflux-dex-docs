@@ -55,6 +55,36 @@
           
             <li class="toctree-l1">
 		
+    <span class="caption-text">ShuttleFlow</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../shuttleflow/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../shuttleflow/json_rpc/">JSON RPC</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../shuttleflow/sdk/">Conflux Crosschain SDK</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">BoomFlow</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../boomflow/">Introduction</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">MatchFlow</span>
     <ul class="subnav">
                 <li class="">
@@ -65,6 +95,18 @@
                     
     <a class="" href="../ws/">WebSocket API</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../reg_user/">User Registration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../frontend/">Frontend Integration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../market_maker/">Market Maker</a>
+                </li>
                 <li class=" current">
                     
     <a class="current" href="./">EIP712 Signature</a>
@@ -73,6 +115,8 @@
     <li class="toctree-l3"><a href="#why-eip712">Why EIP712</a></li>
     
         <ul>
+        
+            <li><a class="toctree-l4" href="#general">General</a></li>
         
             <li><a class="toctree-l4" href="#eip712-domain">EIP712 Domain</a></li>
         
@@ -88,25 +132,6 @@
     
 
     </ul>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">ShuttleFlow</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../shuttleflow/">Introduction</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../shuttleflow/json_rpc/">JSON RPC</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../shuttleflow/sdk/">Conflux Crosschain SDK</a>
                 </li>
     </ul>
 	    </li>
@@ -149,6 +174,11 @@
               
                 <h1 id="why-eip712">Why EIP712</h1>
 <p>To avoid transaction replay attack in different Conflux chains, <strong>Conflux DEX</strong> follow the way of <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-712.md">EIP712</a> to sign requests from users, which will be validated in <strong>MatchFlow</strong> and <strong>BoomFlow</strong>.</p>
+<h2 id="general">General</h2>
+<ul>
+<li>Values in HEX format have <code>0x</code> prefix.</li>
+<li>Some values (e.g. <code>amount</code>, <code>price</code>) are <code>BigDecimal</code> or <code>double</code> types, and need to convert to <strong>big number in drip</strong> format when interact with blockchain. Basically, the formula is: <code>big number = decimal * 10^18</code>.</li>
+</ul>
 <h2 id="eip712-domain">EIP712 Domain</h2>
 <p>Primary type: <code>EIP712Domain</code></p>
 <h3 id="boomflow-domain">Boomflow Domain</h3>
@@ -174,7 +204,7 @@
 <tr>
 <td>chainId</td>
 <td>uint256</td>
-<td>0</td>
+<td>Retrieve from Conflux RPC server</td>
 </tr>
 <tr>
 <td>verifyingContract</td>
@@ -206,7 +236,7 @@
 <tr>
 <td>chainId</td>
 <td>uint256</td>
-<td>0</td>
+<td>Retrieve from Conflux RPC server</td>
 </tr>
 <tr>
 <td>verifyingContract</td>
@@ -216,6 +246,7 @@
 </tbody>
 </table>
 <p>In the response of REST API <code>/currencies/${name}</code>, use <code>contractAddress</code> as CRCL contract address, while <code>tokenAddress</code> is the corresponding ERC777 contract address.</p>
+<p><code>chainId</code> is 0 by default, however, client should always retrieve it from Conflux RPC server. E.g. call <a href="https://developer.conflux-chain.org/docs/js-conflux-sdk/javascript_sdk#confluxprototypegetstatus">getStatus</a> to get chain ID in Javascript program.</p>
 <h2 id="place-order">Place Order</h2>
 <p>Domain: <a href="#boomflow-domain">Boomflow Domain</a></p>
 <p>Primary type: <code>Order</code></p>
@@ -393,10 +424,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../shuttleflow/" class="btn btn-neutral float-right" title="Introduction">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../ws/" class="btn btn-neutral" title="WebSocket API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../market_maker/" class="btn btn-neutral" title="Market Maker"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -424,10 +453,8 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../ws/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../market_maker/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../../shuttleflow/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

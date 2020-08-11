@@ -7,16 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="shortcut icon" href="./img/favicon.ico">
-  <title>Conflux DEX Documentation</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Market Maker - Conflux DEX Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
-  <script src="./js/jquery-2.1.1.min.js" defer></script>
-  <script src="./js/modernizr-2.8.3.min.js" defer></script>
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Market Maker";
+    var mkdocs_page_input_path = "matchflow\\market_maker.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
@@ -29,9 +36,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="./." class="icon icon-home"> Conflux DEX Documentation</a>
+        <a href="../.." class="icon icon-home"> Conflux DEX Documentation</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -43,7 +50,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="./.">Welcome to Conflux DEX</a>
+    <a class="" href="../..">Welcome to Conflux DEX</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -52,15 +59,15 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="./shuttleflow/">Introduction</a>
+    <a class="" href="../../shuttleflow/">Introduction</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="./shuttleflow/json_rpc/">JSON RPC</a>
+    <a class="" href="../../shuttleflow/json_rpc/">JSON RPC</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="./shuttleflow/sdk/">Conflux Crosschain SDK</a>
+    <a class="" href="../../shuttleflow/sdk/">Conflux Crosschain SDK</a>
                 </li>
     </ul>
 	    </li>
@@ -71,7 +78,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="./boomflow/">Introduction</a>
+    <a class="" href="../../boomflow/">Introduction</a>
                 </li>
     </ul>
 	    </li>
@@ -82,27 +89,30 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="./matchflow/">Introduction</a>
+    <a class="" href="../">Introduction</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="./matchflow/ws/">WebSocket API</a>
+    <a class="" href="../ws/">WebSocket API</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="./matchflow/reg_user/">User Registration</a>
+    <a class="" href="../reg_user/">User Registration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="./matchflow/frontend/">Frontend Integration</a>
+    <a class="" href="../frontend/">Frontend Integration</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Market Maker</a>
+    <ul class="subnav">
+            
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="./matchflow/market_maker/">Market Maker</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="./matchflow/eip712/">EIP712 Signature</a>
+    <a class="" href="../eip712/">EIP712 Signature</a>
                 </li>
     </ul>
 	    </li>
@@ -117,7 +127,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="./.">Conflux DEX Documentation</a>
+        <a href="../..">Conflux DEX Documentation</a>
       </nav>
 
       
@@ -125,9 +135,15 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="./.">Docs</a> &raquo;</li>
+    <li><a href="../..">Docs</a> &raquo;</li>
     
+      
+        
+          <li>MatchFlow &raquo;</li>
+        
+      
     
+    <li>Market Maker</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -137,22 +153,21 @@
           <div role="main">
             <div class="section">
               
-
-  <h1 id="search">Search Results</h1>
-
-  <form id="content_search" action="search.html">
-    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-    <input name="q" id="mkdocs-search-query" type="text" class="search_input search-query ui-autocomplete-input" placeholder="Search the Docs" autocomplete="off" autofocus title="Type search term here">
-  </form>
-
-  <div id="mkdocs-search-results" class="search-results">
-    Searching...
-  </div>
-
-
+                <p>A market maker can easily interact with MatchFlow via <a href="../conflux-dex-api.html" target="_blank">REST API</a> and <a href="../ws/">WebSocket API</a>.</p>
+<p>Firstly, please refer to the <a href="../reg_user/">document</a> to add a new account in Conflux DEX. After that, market maker could call REST APIs to <a href="../conflux-dex-api.html#_place_order" target="_blank">place orders</a> or <a href="../conflux-dex-api.html#_cancel_order" target="_blank">cancel orders</a>. Unlike centralized exchanges, Conflux DEX requires EIP712 based user signature to place an order. Accordingly, market maker need to follow the <a href="../eip712/">type schema</a> to sign place/cancel order request.</p>
+              
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../eip712/" class="btn btn-neutral float-right" title="EIP712 Signature">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../frontend/" class="btn btn-neutral" title="Frontend Integration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -178,12 +193,16 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
+        <span><a href="../frontend/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../eip712/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
-    <script>var base_url = '.';</script>
-    <script src="./js/theme.js" defer></script>
-      <script src="./search/main.js" defer></script>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
 
 </body>
 </html>
