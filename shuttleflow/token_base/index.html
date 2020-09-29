@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>User Registration - Conflux DEX Documentation</title>
+  <title>Token base - Conflux DEX Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "User Registration";
-    var mkdocs_page_input_path = "matchflow\\reg_user.md";
+    var mkdocs_page_name = "Token base";
+    var mkdocs_page_input_path = "shuttleflow\\token_base.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -59,15 +59,15 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../shuttleflow/">Introduction</a>
+    <a class="" href="../">Introduction</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../shuttleflow/json_rpc/">JSON RPC</a>
+    <a class="" href="../json_rpc/">JSON RPC</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../shuttleflow/sdk/">Conflux Crosschain SDK</a>
+    <a class="" href="../sdk/">Conflux Crosschain SDK</a>
                 </li>
     </ul>
 	    </li>
@@ -89,36 +89,27 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../">Introduction</a>
+    <a class="" href="../../matchflow/">Introduction</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../ws/">WebSocket API</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">User Registration</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#add-user">Add User</a></li>
-    
-
-    <li class="toctree-l3"><a href="#api">API</a></li>
-    
-
-    </ul>
+    <a class="" href="../../matchflow/ws/">WebSocket API</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../frontend/">Frontend Integration</a>
+    <a class="" href="../../matchflow/reg_user/">User Registration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../market_maker/">Market Maker</a>
+    <a class="" href="../../matchflow/frontend/">Frontend Integration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../eip712/">EIP712 Signature</a>
+    <a class="" href="../../matchflow/market_maker/">Market Maker</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../matchflow/eip712/">EIP712 Signature</a>
                 </li>
     </ul>
 	    </li>
@@ -129,15 +120,15 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../shuttleflow/">Introduction</a>
+    <a class="" href="../">Introduction</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../shuttleflow/json_rpc/">JSON RPC</a>
+    <a class="" href="../json_rpc/">JSON RPC</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../shuttleflow/sdk/">Conflux Crosschain SDK</a>
+    <a class="" href="../sdk/">Conflux Crosschain SDK</a>
                 </li>
     </ul>
 	    </li>
@@ -163,12 +154,8 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        
-          <li>MatchFlow &raquo;</li>
-        
-      
     
-    <li>User Registration</li>
+    <li>Token base</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -178,29 +165,54 @@
           <div role="main">
             <div class="section">
               
-                <p>Unlike the centralized exchange, Conflux DEX do not require user to register an account via REST API in MatchFlow. Because, Conflux DEX is a decentralized exchange and user assets are all locked in smart contracts on Conflux chain. User need to interact with CRC-L contract for user registration in Conflux DEX.</p>
-<h1 id="add-user">Add User</h1>
-<p>When user deposit assets into CRC-L contracts, MatchFlow listens and polls the <code>deposit</code> event data once the <code>deposit</code> transaction executed and confirmed on Conflux chain. After that, MatchFlow will add or update the account balance in off-chain ledger (database). Generally, the transaction confirmation time on Conflux chain is no more than one minute, so user will be able to place orders after one minute of deposit.</p>
-<h1 id="api">API</h1>
-<p>The recommended way to deposit assets is using <a href="https://www.npmjs.com/package/boomflow-frontend">boomflow frontend SDK</a>, and the available asset list could be retrieved from MatchFlow REST API <a href="../conflux-dex-api.html#_get_currencies" target="_blank">getCurrencies</a>. Each asset has two contract addresses:</p>
-<ul>
-<li><code>contractAddress</code>: asset CRC-L contract address, which is used for DEX only.</li>
-<li><code>tokenAddress</code>: asset ERC777 token contract address, which is used for any dapps.</li>
-</ul>
-<p>With boomflow frontend SDK, user assets could be easily depsoited from ERC777 contract to CRC-L contract.</p>
+                <h3 id="tokenbase">TokenBase</h3>
+<p><code>TokenBase</code> is the cross chain token contract (cToken).
+It follows ERC777 standard except burn function.</p>
+<p>Owership and autorities:
+* Owner of cToken is initially who deployed it (Conflux admin), then its owner will transfer 
+the ownership to CustodianCore contract. Only owner of the contract is able to mint cToken.
+* Only pausers are able to pause/unpause the cToken contract. Initially, the pauser 
+of cToken is Conflux admin, the pauser can add other pausers.</p>
+<p>Core Functions:</p>
+<p>TokenBase implements the functions of ERC777 standard, with a different mint and burn function:</p>
+<pre><code class="solidity">function mint(
+        address account, // user conflux address
+        uint256 amount, // user mint amount
+        address fee_address, // sponsor of the token
+        uint256 fee, // mint fee, or mint fee + receive wallet fee
+        address defi, // conflux defi 
+        string memory tx_id // cross chain transaction hash
+) public;
+</code></pre>
+
+<p>Owner authority required.</p>
+<p>Mint tokens for user and mint tokens for token sponsor as fee.</p>
+<pre><code class="solidity">function burn(
+        address user_addr, // user conflux address
+        uint256 amount, // burn amount
+        uint256 expected_fee, // expected burn fee, in 18 decimals
+        string memory addr, // external chain receive address
+        address defi_relayer // external chain defi relayer address
+) public;
+</code></pre>
+
+<p>Burn cToken from sender's address.</p>
+<p><code>user_addr</code> is used to logging, in case Conflux Defi burn cToken for normal user.</p>
+<p><code>amount</code> should be larger than <code>burn_fee</code> and <code>minimal_burn_value</code> in CustodianCore contract(Note here the decimals 
+of <code>amount</code> is 18 and decimals of <code>burn_fee</code> and <code>minimal_burn_value</code> in CustoidanCore contract is reference token's decimal, 
+the smart contract will do the decimal conversion for comparison). Besides, if the fee is higher than
+<code>expected_fee</code>, the burn transaction will revert.</p>
+<p><code>addr</code> is a ethereum or bitcoin address, which the reference token will be sent to.</p>
+<p>If it is a burnt of eth/erc20 tokens, user can specify a <code>defi_relayer</code>, which will send 
+the eth/erc20 to defi_relayer and logging the user's information. See more in <a href="../defi_relayer/">defi relayer</a>.</p>
+<p>If user does not want to use <code>defi_relayer</code>, fill it with zero address.</p>
+<p>For example,<code>burn(cusdt_address, 1e18, 1e16, user_eth_addr, zero_addr)</code> will burn 1 cUSDT and user 
+is willing to pay no more than 0.01 cUSDT as burn fee to sponsor. The burned usdt will directly 
+sent to user_eth_addr.</p>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../frontend/" class="btn btn-neutral float-right" title="Frontend Integration">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../ws/" class="btn btn-neutral" title="WebSocket API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -226,10 +238,6 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../ws/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../frontend/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>User Registration - Conflux DEX Documentation</title>
+  <title>Eth factory - Conflux DEX Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "User Registration";
-    var mkdocs_page_input_path = "matchflow\\reg_user.md";
+    var mkdocs_page_name = "Eth factory";
+    var mkdocs_page_input_path = "shuttleflow\\eth_factory.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -59,15 +59,15 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../shuttleflow/">Introduction</a>
+    <a class="" href="../">Introduction</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../shuttleflow/json_rpc/">JSON RPC</a>
+    <a class="" href="../json_rpc/">JSON RPC</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../shuttleflow/sdk/">Conflux Crosschain SDK</a>
+    <a class="" href="../sdk/">Conflux Crosschain SDK</a>
                 </li>
     </ul>
 	    </li>
@@ -89,36 +89,27 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../">Introduction</a>
+    <a class="" href="../../matchflow/">Introduction</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../ws/">WebSocket API</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">User Registration</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#add-user">Add User</a></li>
-    
-
-    <li class="toctree-l3"><a href="#api">API</a></li>
-    
-
-    </ul>
+    <a class="" href="../../matchflow/ws/">WebSocket API</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../frontend/">Frontend Integration</a>
+    <a class="" href="../../matchflow/reg_user/">User Registration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../market_maker/">Market Maker</a>
+    <a class="" href="../../matchflow/frontend/">Frontend Integration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../eip712/">EIP712 Signature</a>
+    <a class="" href="../../matchflow/market_maker/">Market Maker</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../matchflow/eip712/">EIP712 Signature</a>
                 </li>
     </ul>
 	    </li>
@@ -129,15 +120,15 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../shuttleflow/">Introduction</a>
+    <a class="" href="../">Introduction</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../shuttleflow/json_rpc/">JSON RPC</a>
+    <a class="" href="../json_rpc/">JSON RPC</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../shuttleflow/sdk/">Conflux Crosschain SDK</a>
+    <a class="" href="../sdk/">Conflux Crosschain SDK</a>
                 </li>
     </ul>
 	    </li>
@@ -163,12 +154,8 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        
-          <li>MatchFlow &raquo;</li>
-        
-      
     
-    <li>User Registration</li>
+    <li>Eth factory</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -178,29 +165,76 @@
           <div role="main">
             <div class="section">
               
-                <p>Unlike the centralized exchange, Conflux DEX do not require user to register an account via REST API in MatchFlow. Because, Conflux DEX is a decentralized exchange and user assets are all locked in smart contracts on Conflux chain. User need to interact with CRC-L contract for user registration in Conflux DEX.</p>
-<h1 id="add-user">Add User</h1>
-<p>When user deposit assets into CRC-L contracts, MatchFlow listens and polls the <code>deposit</code> event data once the <code>deposit</code> transaction executed and confirmed on Conflux chain. After that, MatchFlow will add or update the account balance in off-chain ledger (database). Generally, the transaction confirmation time on Conflux chain is no more than one minute, so user will be able to place orders after one minute of deposit.</p>
-<h1 id="api">API</h1>
-<p>The recommended way to deposit assets is using <a href="https://www.npmjs.com/package/boomflow-frontend">boomflow frontend SDK</a>, and the available asset list could be retrieved from MatchFlow REST API <a href="../conflux-dex-api.html#_get_currencies" target="_blank">getCurrencies</a>. Each asset has two contract addresses:</p>
-<ul>
-<li><code>contractAddress</code>: asset CRC-L contract address, which is used for DEX only.</li>
-<li><code>tokenAddress</code>: asset ERC777 token contract address, which is used for any dapps.</li>
-</ul>
-<p>With boomflow frontend SDK, user assets could be easily depsoited from ERC777 contract to CRC-L contract.</p>
+                <h3 id="ethfactory">EthFactory</h3>
+<p><code>EthFactory</code> (contracts/factory/EthFactory.sol) is the governance contract of custodian 
+alliance on Ethereum chain. It maintains the information of custodian members and configurations for 
+custodian nodes, including:
+* Custodian member's ethereum address
+* The registered defi relayer contracts.
+* The upper/lower bounds of custodian alliance's eth&amp;erc20 hot wallet
+Ownership and authorities: 
+* At this point, the owner of EthFactory is Conflux admin, who is enabled to modify 
+custodian node configurations and custodian membership.
+* CustodianCore is the owner of all cToken so only it has the authority to mint cTokens.</p>
+<p>Upgrade:
+* EthFactory follows proxy delegate pattern which enables upgrading contract logic without modification of 
+contract address and get rid of data migration.</p>
+<h3 id="core-functions">Core Functions:</h3>
+<pre><code class="solidity">function burn(
+        address token,
+        address payable toAddress,
+        address payable defi_relayer,
+        uint256 amount,
+        string memory tx_id,
+        bytes[] memory signatures
+) public;
+</code></pre>
+
+<p>Only custodian member can call it. </p>
+<p>Withdraw eth/erc20 token to user's address. This functions needs over 2/3 signatures from current custodian members.</p>
+<p>If provided <code>defi_relayer</code> is registered, the token will be sent to <code>defi_relayer</code> by calling its <code>deposit</code> for <code>depositToken</code>.</p>
+<p>Specifically, if token is zero address(denote ETH) and defi_relayer is not used, the withdrawed eth will be firstly 
+sent to the <code>msg.sender</code>(custodian member who settled this burn request), and then <code>msg.sender</code> will send these ETH to 
+<code>toAddress</code>(user address). This avoids some user withdraw ETH directly to the address of some centralized exchange, 
+which is not able to detect the internal ETH transaction in a contract call.</p>
+<h3 id="receivewallet">ReceiveWallet</h3>
+<p><code>ReceiveWallet</code>(or payment wallet) is the contract of receive wallet of custodian alliance for user. 
+The receive wallet can only transfer eth/erc20 token to the address of EthFactory, which is initialized when receive wallet contract construction and can not
+ be modified in future. </p>
+<p>Core Functions:</p>
+<pre><code class="solidity">function retrieve(
+        address token, // erc20 address or zero address for ETH
+        uint256 deploy_fee,
+        uint256 retrieve_fee
+) public;
+</code></pre>
+
+<p>Only custodian member or Create2Factory contract can call it. </p>
+<p>Transfer all eth/erc20 token to EthFactory contract. Where deploy_fee is the fee for 
+deployment of receive wallet, retrieve_fee is the fee for custodian member to move these 
+token from user's receive wallet to hot wallet(governance contract).</p>
+<h3 id="create2factory">Create2Factory</h3>
+<p><code>Create2Factory</code> is the generator of user payment wallet. 
+It can calculate the address of payment wallet of a specific user conflux address before the 
+payment wallet contract is really deployed.</p>
+<p>This contract enable the custodian alliance provide the payment wallet address to user and 
+deploy the payment wallet contract after they received at least one payment from user. </p>
+<pre><code class="solidity">function deploy(
+        bytes memory code,
+        uint256 salt,
+        address token,
+        uint256 deploy_fee,
+        uint256 retrieve_fee
+) public;
+</code></pre>
+
+<p>Only custodian member can call it. </p>
+<p>Deploy the receive wallet of user for specific defi(encoded in <code>salt</code>), and call the <code>retrieve</code> function 
+of the receive wallet deployed, with deploy_fee.</p>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../frontend/" class="btn btn-neutral float-right" title="Frontend Integration">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../ws/" class="btn btn-neutral" title="WebSocket API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -226,10 +260,6 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../ws/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../frontend/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
