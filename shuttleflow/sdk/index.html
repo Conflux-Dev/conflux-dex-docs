@@ -7,24 +7,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>Conflux Crosschain SDK - Conflux DEX Documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "Conflux Crosschain SDK";
-    var mkdocs_page_input_path = "shuttleflow\\sdk.md";
+    var mkdocs_page_input_path = "shuttleflow/sdk.md";
     var mkdocs_page_url = null;
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Conflux DEX Documentation</a>
         <div role="search">
@@ -45,94 +47,51 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Welcome to Conflux DEX</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">ShuttleFlow</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../">Introduction</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../json_rpc/">JSON RPC</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Conflux Crosschain SDK</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#conflux-shuttleflow-sdk">Conflux Shuttleflow SDK</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#functions">Functions</a></li>
-        
-            <li><a class="toctree-l4" href="#const-parameters-for-test">Const parameters for test</a></li>
-        
-            <li><a class="toctree-l4" href="#examples">Examples</a></li>
-        
-        </ul>
-    
-
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Welcome to Conflux DEX</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">ShuttleFlow</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../json_rpc/">JSON RPC</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Conflux Crosschain SDK</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#public-nodes">Public Nodes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-parameters-for-test">Const parameters for test</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a>
+    </li>
     </ul>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">BoomFlow</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../boomflow/">Introduction</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">MatchFlow</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../matchflow/">Introduction</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../matchflow/ws/">WebSocket API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../matchflow/reg_user/">User Registration</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../matchflow/frontend/">Frontend Integration</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../matchflow/market_maker/">Market Maker</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../matchflow/eip712/">EIP712 Signature</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">BoomFlow</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../boomflow/">Introduction</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">MatchFlow</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../matchflow/">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../matchflow/ws/">WebSocket API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../matchflow/reg_user/">User Registration</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../matchflow/frontend/">Frontend Integration</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../matchflow/market_maker/">Market Maker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../matchflow/eip712/">EIP712 Signature</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -161,6 +120,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -168,6 +128,10 @@
               
                 <h1 id="conflux-shuttleflow-sdk">Conflux Shuttleflow SDK</h1>
 <p>https://www.npmjs.com/package/conflux-crosschain</p>
+<h2 id="public-nodes">Public Nodes</h2>
+<p>Now we provide public api endpoint for both mainnet and testnet of shuttleflow:</p>
+<p>Mainnet: https://open-api.shuttleflow.io</p>
+<p>Testnet: https://dev.shuttleflow.io</p>
 <h2 id="functions">Functions</h2>
 <pre><code>// get ethereum receive wallet address (used for both eth &amp; usdt) of user.
 // when user send money to receive wallet, custodian will directly deposit the 
@@ -233,20 +197,17 @@ async function getDefiList(node_url);
 }
 async function getTokenBurnFee(token, node_url);
 </code></pre>
-
 <h2 id="const-parameters-for-test">Const parameters for test</h2>
 <pre><code>crosschain.test_conf = {
   usdt_addr: // usdt address on rinkeby testnet,
   node_url: // custodian node url,
 };
 </code></pre>
-
 <h2 id="examples">Examples</h2>
 <p>Import crosschain module.</p>
 <pre><code>const crosschain = require('crosschain');
 const test_conf = crosschain.test_conf;
 </code></pre>
-
 <p>get receive wallet address of a user:</p>
 <pre><code>let receive_wallet = crosschain.getUserReceiveWalletEth(
     '0x6B6C3A1eC5C689C3dd158b1a6E8Bc722373a2BfA', 
@@ -258,7 +219,6 @@ const test_conf = crosschain.test_conf;
 // send eth to receive_wallet, custodian will mint cETH for users and then transfer them to CRC-L.
 // user's cETH will be locked in the address of CRC-L of cETH.
 </code></pre>
-
 <p>get user operation list:</p>
 <pre><code>crosschain.getUserOperationList({
   address: '0x1f04dcc0432b2df7ce604f0ad4736cadf5ed04ea',// for example
@@ -293,13 +253,11 @@ const test_conf = crosschain.test_conf;
         '0x29fe0c47e79934b16ba71d40e3c9c124c4ae7ee03e61336568fd3b9870313872' } ],
   total: 2 }
 </code></pre>
-
 <p>get mintable status:</p>
 <pre><code>crosschain.isMintable(test_conf.node_url).then(console.log);
 
 true
 </code></pre>
-
 <p>get defi list:</p>
 <pre><code>crosschain.getDefiList(test_conf.node_url).then(console.log);
 
@@ -308,7 +266,6 @@ true
   { defi_name: 'Conflux DEX',
     defi_addr: '0x8595b7822db70040b6bb30e87bd26eeb66576b37' } ]
 </code></pre>
-
 <p>get token list:</p>
 <pre><code>crosschain.getTokenList(test_conf.node_url).then(console.log);
 
@@ -403,7 +360,7 @@ true
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -413,7 +370,7 @@ true
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -427,6 +384,11 @@ true
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
       <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

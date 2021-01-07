@@ -7,24 +7,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>JSON RPC - Conflux DEX Documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "JSON RPC";
-    var mkdocs_page_input_path = "shuttleflow\\json_rpc.md";
+    var mkdocs_page_input_path = "shuttleflow/json_rpc.md";
     var mkdocs_page_url = null;
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Conflux DEX Documentation</a>
         <div role="search">
@@ -45,122 +47,89 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Welcome to Conflux DEX</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">ShuttleFlow</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../">Introduction</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">JSON RPC</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#json-rpc-methods">JSON-RPC Methods</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Welcome to Conflux DEX</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">ShuttleFlow</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../">Introduction</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">JSON RPC</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#getspecificuseroperationlist">getSpecificUserOperationList</a>
         <ul>
-        
-            <li><a class="toctree-l4" href="#gethotwalletbalance">getHotWalletBalance</a></li>
-        
-            <li><a class="toctree-l4" href="#getcoldwalletbalance">getColdWalletBalance</a></li>
-        
-            <li><a class="toctree-l4" href="#getprofitwalletbalance">getProfitWalletBalance</a></li>
-        
-            <li><a class="toctree-l4" href="#getwalletaddress">getWalletAddress</a></li>
-        
-            <li><a class="toctree-l4" href="#verifybalance">verifyBalance</a></li>
-        
-            <li><a class="toctree-l4" href="#getcoldtransferhashbtc">getColdTransferHashBtc</a></li>
-        
-            <li><a class="toctree-l4" href="#getcoldtransferhasheth">getColdTransferHashEth</a></li>
-        
-            <li><a class="toctree-l4" href="#signcoldtransferbtc">signColdTransferBtc</a></li>
-        
-            <li><a class="toctree-l4" href="#signcoldtransfereth">signColdTransferEth</a></li>
-        
-            <li><a class="toctree-l4" href="#getmemberchangeinfo">getMemberChangeInfo</a></li>
-        
-            <li><a class="toctree-l4" href="#gethotcoldwallettransferlist">getHotColdWalletTransferList</a></li>
-        
-            <li><a class="toctree-l4" href="#getprofitsplitlist">getProfitSplitList</a></li>
-        
-            <li><a class="toctree-l4" href="#getuseroperationlist">getUserOperationList</a></li>
-        
-            <li><a class="toctree-l4" href="#getspecificuseroperationlist">getSpecificUserOperationList</a></li>
-        
-            <li><a class="toctree-l4" href="#getwallettransferlist">getWalletTransferList</a></li>
-        
-            <li><a class="toctree-l4" href="#getcustodianinfo">getCustodianInfo</a></li>
-        
-            <li><a class="toctree-l4" href="#getbounds">getBounds</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns">Returns</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example">Example</a>
+    </li>
         </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../sdk/">Conflux Crosschain SDK</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">BoomFlow</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../boomflow/">Introduction</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">MatchFlow</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../matchflow/">Introduction</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../matchflow/ws/">WebSocket API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../matchflow/reg_user/">User Registration</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../matchflow/frontend/">Frontend Integration</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../matchflow/market_maker/">Market Maker</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../matchflow/eip712/">EIP712 Signature</a>
-                </li>
-    </ul>
-	    </li>
-          
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getuserreceivewalleteth">getUserReceiveWalletEth</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters_1">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns_1">Returns</a>
+    </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example_1">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getuserreceivewalletbtc">getUserReceiveWalletBtc</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters_2">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns_2">Returns</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example_2">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gettokenlist">getTokenList</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parameters_3">Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#returns_3">Returns</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example_3">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getdefilist">getDefiList</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parameters_4">Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#returns_4">Returns</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example_4">Example</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../sdk/">Conflux Crosschain SDK</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">BoomFlow</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../boomflow/">Introduction</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">MatchFlow</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../matchflow/">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../matchflow/ws/">WebSocket API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../matchflow/reg_user/">User Registration</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../matchflow/frontend/">Frontend Integration</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../matchflow/market_maker/">Market Maker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../matchflow/eip712/">EIP712 Signature</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -189,703 +158,156 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
             <div class="section">
               
                 <h2 id="json-rpc-methods">JSON-RPC Methods</h2>
-<h3 id="gethotwalletbalance">getHotWalletBalance</h3>
-<p>Get the hot wallet balance of specified token.</p>
-<h4 id="parameters">Parameters</h4>
-<p>(1) token: (string)</p>
-<h4 id="returns">Returns</h4>
-<p>String</p>
-<h4 id="example">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getHotWalletBalance&quot;,&quot;params&quot;:[&quot;btc&quot;],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: 0.00281705
-}
-</code></pre>
-
-<h3 id="getcoldwalletbalance">getColdWalletBalance</h3>
-<p>Get the cold wallet balance of specified token.</p>
-<h4 id="parameters_1">Parameters</h4>
-<p>(1) token: (string)</p>
-<h4 id="returns_1">Returns</h4>
-<p>String</p>
-<h4 id="example_1">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getColdWalletBalance&quot;,&quot;params&quot;:[&quot;btc&quot;],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: 0
-}
-</code></pre>
-
-<h3 id="getprofitwalletbalance">getProfitWalletBalance</h3>
-<p>Get the profit wallet balance of specified token.</p>
-<h4 id="parameters_2">Parameters</h4>
-<p>(1) token: (string)</p>
-<h4 id="returns_2">Returns</h4>
-<p>Number</p>
-<h4 id="example_2">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getProfitWalletBalance&quot;,&quot;params&quot;:[&quot;eth&quot;],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: &quot;0&quot;
-}
-</code></pre>
-
-<h3 id="getwalletaddress">getWalletAddress</h3>
-<p>Get the wallet address url for different token.</p>
-<h4 id="parameters_3">Parameters</h4>
-<p>None.</p>
-<h4 id="returns_3">Returns</h4>
-<p>JSON object:\
-{\
-&nbsp;&nbsp;token_name: (JSON object)\
-&nbsp;&nbsp;&nbsp;&nbsp;{\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hot_wallet": (String) url of  wallet,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"cold_wallet": (String) url of  wallet,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"profit_wallet": (String) url of  wallet,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"personal_wallet": (String) url of  wallet,\
-&nbsp;&nbsp;&nbsp;&nbsp;}\
-}</p>
-<h4 id="example_3">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getWalletAddress&quot;,&quot;params&quot;:[],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: {
-        &quot;btc&quot;: {
-            &quot;hot_wallet&quot;: &quot;https://blockstream.info/testnet/address/2MsPJwNqdeUHvxM3munWBxtCE2WncF9PKbZ&quot;,
-            &quot;cold_wallet&quot;: &quot;https://blockstream.info/testnet/address/2N5d2CVouyjaF8thM9anTTcJFyHvhF2AdRS&quot;,
-            &quot;profit_wallet&quot;: &quot;https://blockstream.info/testnet/address/2N9rEmrpFA1b7HKZiDghnNEmTy6MDrgV3aC&quot;,
-            &quot;personal_wallet&quot;: &quot;https://blockstream.info/testnet/address/mhMHPARYGwa4gki9bjtyZnSWAX7ApfjhuR&quot;
-        },
-        &quot;eth&quot;: {
-            &quot;hot_wallet_address&quot;: &quot;https://rinkeby.etherscan.io/address/0x81632943BA6395d5E998393343e2Bb47c9f8Aa18&quot;,
-            &quot;cold_wallet_address&quot;: &quot;https://rinkeby.etherscan.io/address/0x81632943BA6395d5E998393343e2Bb47c9f8Aa18&quot;,
-            &quot;profit_wallet_address&quot;: &quot;https://rinkeby.etherscan.io/address/0x81632943BA6395d5E998393343e2Bb47c9f8Aa18&quot;,
-            &quot;personal_address&quot;: &quot;https://rinkeby.etherscan.io/address/0x6B6C3A1eC5C689C3dd158b1a6E8Bc722373a2BfA&quot;
-        },
-        &quot;usdt&quot;: {
-            &quot;hot_wallet_address&quot;: &quot;https://rinkeby.etherscan.io/token/0xd5185bF8E6F0706aBED0a4025bA4969197c8166B?a=0x81632943BA6395d5E998393343e2Bb47c9f8Aa18&quot;,
-            &quot;cold_wallet_address&quot;: &quot;https://rinkeby.etherscan.io/token/0xd5185bF8E6F0706aBED0a4025bA4969197c8166B?a=0x81632943BA6395d5E998393343e2Bb47c9f8Aa18&quot;,
-            &quot;profit_wallet_address&quot;: &quot;https://rinkeby.etherscan.io/token/0xd5185bF8E6F0706aBED0a4025bA4969197c8166B?a=0x81632943BA6395d5E998393343e2Bb47c9f8Aa18&quot;,
-            &quot;personal_address&quot;: &quot;https://rinkeby.etherscan.io/token/0xd5185bF8E6F0706aBED0a4025bA4969197c8166B?a=0x6B6C3A1eC5C689C3dd158b1a6E8Bc722373a2BfA&quot;
-        }
-    }
-}
-</code></pre>
-
-<h3 id="verifybalance">verifyBalance</h3>
-<p>verify the balance of a specified token.</p>
-<h4 id="parameters_4">Parameters</h4>
-<p>(1) token: (string)</p>
-<h4 id="returns_4">Returns</h4>
-<p>JSON object:\
-{\
-&nbsp;&nbsp;hot: (string) hot wallet balance,\
-&nbsp;&nbsp;cold: (string) cold wallet balance,\
-&nbsp;&nbsp;total: (string) cToken total supply,\
-&nbsp;&nbsp;success: (bool) verification result,\
-}</p>
-<h4 id="example_4">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;verifyBalance&quot;,&quot;params&quot;:[&quot;btc&quot;],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: {
-        &quot;hot&quot;: &quot;0&quot;,
-        &quot;cold&quot;: &quot;0.0203324&quot;,
-        &quot;total&quot;: &quot;0.005&quot;,
-        &quot;success&quot;: false
-    }
-}
-</code></pre>
-
-<h3 id="getcoldtransferhashbtc">getColdTransferHashBtc</h3>
-<p>Get the hash of bitcoin operation which need private key of cold wallet.</p>
-<h4 id="parameters_5">Parameters</h4>
-<p>(1) type: (string), "ColdToHot"|"ColdTransfer"|"ProfitTransfer"|"SplitProfit",\
-(2) amount: (string | number), Optional (only "ColdToHot" | "SplitProfit")</p>
-<h4 id="returns_5">Returns</h4>
-<p>JSON object:\
-{\
-&nbsp;&nbsp;digest:(array of array of string) hash of each utxos used to sign,\
-&nbsp;&nbsp;hash:(string) internal transaction hash,
-}</p>
-<h4 id="example_5">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getColdTransferHashBtc&quot;,&quot;params&quot;:[&quot;ColdToHot&quot;,&quot;100000&quot;],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: {
-        &quot;hash&quot;: &quot;c051866e922c9d0eee16b075791fc71076c55b0e7c7da2f03cebc41ff3f234e0#1&quot;,
-        &quot;digests&quot;: [
-            [&quot;7d6b239bab77e06a7814e07653ce0b746b559a101f4958dccd5cab0e8801c00c&quot;]
-        ]
-    }
-}
-
-$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getColdTransferHashBtc&quot;,&quot;params&quot;:[&quot;SplitProfit&quot;,&quot;100000&quot;],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: {
-        &quot;hash&quot;: &quot;SplitProfit@2N9rEmrpFA1b7HKZiDghnNEmTy6MDrgV3aC@@0x186a0#1&quot;,
-        &quot;digests&quot;: [
-            [&quot;298b25483820fddf35a3930422690f8a5053fb3ffa9ec660627a39ed78bec3d7&quot;]
-        ]
-    }
-}
-</code></pre>
-
-<h3 id="getcoldtransferhasheth">getColdTransferHashEth</h3>
-<p>Get the hash of eth/erc20 token operation which need private key of cold wallet.</p>
-<h4 id="parameters_6">Parameters</h4>
-<p>(1) type: (string), "ColdToHot"|"SplitProfit",\
-(2) token: (string)\
-(3) amount: (string | number)</p>
-<h4 id="returns_6">Returns</h4>
-<p>JSON object:\
-{\
-&nbsp;&nbsp;token:(string),\
-&nbsp;&nbsp;amount:(string),\
-&nbsp;&nbsp;nonce:(string), operation nonce, \
-&nbsp;&nbsp;hash:(string), internal transaction hash,\
-}</p>
-<h4 id="example_6">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getColdTransferHashEth&quot;,&quot;params&quot;:[&quot;ColdToHot&quot;,&quot;eth&quot;,&quot;100000&quot;],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: {
-        &quot;token&quot;: &quot;eth&quot;,
-        &quot;amount&quot;: &quot;0x186a0&quot;,
-        &quot;nonce&quot;: &quot;0&quot;,
-        &quot;hash&quot;: &quot;0xecf1cd87d27cbd0785da88625b7c414ed1954fd8abb3a427f295537152fdeed2&quot;
-    }
-}
-</code></pre>
-
-<h3 id="signcoldtransferbtc">signColdTransferBtc</h3>
-<p>sign the bitcoin transfer cold wallet to another address request.</p>
-<h4 id="parameters_7">Parameters</h4>
-<p>(1) type:(string) "ColdToHot"|"ColdTransfer"|"ProfitTransfer"|"SplitProfit",\
-(2) amount: (string | number), Optional (only "ColdToHot" | "SplitProfit"),\
-(3) hash:(string) internal transaction hash to sign\
-(4) signatures:(array of array of string) signature of each utxos used
-(5) signer:(string) signer's public key</p>
-<h4 id="returns_7">Returns</h4>
-<p>"sign successfully" | Error Message (string)</p>
-<h4 id="example_7">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;signColdTransferBtc&quot;,&quot;params&quot;:[&quot;ColdToHot&quot;,&quot;100000&quot;,&quot;c051866e922c9d0eee16b075791fc71076c55b0e7c7da2f03cebc41ff3f234e0#1&quot;,[[&quot;7d6b239bab77e06a7814e07653ce0b746b559a101f4958dccd5cab0e8801c00c&quot;]]],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: &quot;sign successfully&quot;
-}
-
-$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;signColdTransferBtc&quot;,&quot;params&quot;:[&quot;SplitProfit&quot;,&quot;100000&quot;,&quot;SplitProfit@2N9rEmrpFA1b7HKZiDghnNEmTy6MDrgV3aC@@0x186a0#1&quot;,[[&quot;304402202c645b25cc329d2b8adb82c7ee0aca60e28e132bc8ac500efd18aa5229b9531b02201a4972bda60aeaddd489d0774d3b2648a3384c2767dbb6ee1a395941e241909301&quot;]]],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: &quot;sign successfully&quot;
-}
-</code></pre>
-
-<h3 id="signcoldtransfereth">signColdTransferEth</h3>
-<p>sign the ethereum or erc20 token transfer cold wallet to another address request.</p>
-<h4 id="parameters_8">Parameters</h4>
-<p>(1) type: (string), "ColdToHot"|"SplitProfit",\
-(2) token:(string) token name or erc20 or eth,\
-(3) amount:(string),\
-(4) nonce:(string), operation nonce,\
-(5) hash:(string), internal transaction hash,\
-(6) signature:(string), signature of hash
-(7) signer:(string), signer's public key</p>
-<h4 id="returns_8">Returns</h4>
-<p>"sign successfully" | Error Message (string)</p>
-<h4 id="example_8">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;signColdTransferEth&quot;,&quot;params&quot;:[&quot;ColdToHot&quot;,&quot;eth&quot;,&quot;100000&quot;,&quot;0&quot;,&quot;0xecf1cd87d27cbd0785da88625b7c414ed1954fd8abb3a427f295537152fdeed2&quot;,&quot;0x6df962201a0372d415d79ef6b8cfde457ea2f6a352651f0b189c6d114615a4cb6a9c298fe36b9954bc55a6e42295a8c6720a0aec0d4d85b0c82db1d6e10d1c741b&quot;],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: &quot;sign successfully&quot;
-}
-</code></pre>
-
-<h3 id="getmemberchangeinfo">getMemberChangeInfo</h3>
-<p>Get last member change information.</p>
-<h4 id="parameters_9">Parameters</h4>
-<p>None.</p>
-<h4 id="returns_9">Returns</h4>
-<p>JSON object:\
-{\
-&nbsp;&nbsp;info:(JSON object) Member change detail:\
-&nbsp;&nbsp;&nbsp;&nbsp;{\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;epoch:(Number),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;changes:(array of JSON object) [{,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;member:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operation:(string) "add" | "remove",\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}...]\
-&nbsp;&nbsp;&nbsp;&nbsp;}\
-&nbsp;&nbsp;address_change:(JSON object) bitcoin address change detail:\
-&nbsp;&nbsp;&nbsp;&nbsp;{\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;last_hot_address:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;last_cold_address:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;last_profit_address:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hot_address:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cold_address:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profit_address:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;}\
-}</p>
-<h4 id="example_9">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getMemberChangeInfo&quot;,&quot;params&quot;:[],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: {
-        &quot;info&quot;: {
-            &quot;epoch&quot;: 200924,
-            &quot;changes&quot;: [{
-                &quot;member&quot;: &quot;0x81f3521d71990945B99e1C592750D7157F2b544f&quot;,
-                &quot;operation&quot;: &quot;remove&quot;
-            }, {
-                &quot;member&quot;: &quot;0x65CF2b2c91e6eff901F10ab7363ae58cf1bfCCc5&quot;,
-                &quot;operation&quot;: &quot;remove&quot;
-            }, {
-                &quot;member&quot;: &quot;0x81f3521d71990945b99e1c592750d7157f2b544f&quot;,
-                &quot;operation&quot;: &quot;add&quot;
-            }, {
-                &quot;member&quot;: &quot;0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5&quot;,
-                &quot;operation&quot;: &quot;add&quot;
-            }, {
-                &quot;member&quot;: &quot;0x2338f8646aeaa5a32d374fae49ee7aae6bca1efc&quot;,
-                &quot;operation&quot;: &quot;add&quot;
-            }]
-        },
-        &quot;address_change&quot;: {
-            &quot;last_hot_address&quot;: &quot;2MsPJwNqdeUHvxM3munWBxtCE2WncF9PKbZ&quot;,
-            &quot;last_cold_address&quot;: &quot;2N5d2CVouyjaF8thM9anTTcJFyHvhF2AdRS&quot;,
-            &quot;last_profit_address&quot;: &quot;2N9rEmrpFA1b7HKZiDghnNEmTy6MDrgV3aC&quot;,
-            &quot;cold_address&quot;: &quot;2MyP3jysyz1GTeD6VHPZ6Wqs5SkNc2VkNBb&quot;,
-            &quot;profit_address&quot;: &quot;2N7tUaxmwq9rwtXZUYymiYXnn9s7Vd2hMZp&quot;,
-            &quot;hot_address&quot;: &quot;2N7UpxpCo6gEpPdjksZPPE9GjTq8JY1KQpz&quot;
-        }
-    }
-}
-</code></pre>
-
-<h3 id="gethotcoldwallettransferlist">getHotColdWalletTransferList</h3>
-<p>Get wallet transfer operations list between hot and cold wallet.</p>
-<h4 id="parameters_10">Parameters</h4>
-<p>(1) skip:(Number) the number of leading operations to be ignored\
-(2) count:(Number) the maximum number of operations to return</p>
-<h4 id="returns_10">Returns</h4>
-<h4 id="example_10">Example</h4>
-<p>JSON object:\
-{\
-&nbsp;&nbsp;txs: (Array of JSON objects) transactions in requested range\
-&nbsp;&nbsp;&nbsp;&nbsp;[\
-&nbsp;&nbsp;&nbsp;&nbsp;For doing request:\
-&nbsp;&nbsp;&nbsp;&nbsp;{\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nonce_or_txid:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user_addr:(string) user address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to_addr:(string) money to address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;need:(Number) total number of signatures needed,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signer:(array of string) list of members who have signed,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;has_signed:(bool) whether current member has signed or not,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status:(string) "doing",\
-&nbsp;&nbsp;&nbsp;&nbsp;},\
-&nbsp;&nbsp;&nbsp;&nbsp;For finished request:\
-&nbsp;&nbsp;&nbsp;&nbsp;{\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nonce_or_txid:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user_addr:(string) user address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to_addr:(string) money to address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status:(string) "finished",\
-&nbsp;&nbsp;&nbsp;&nbsp;}...]\
-&nbsp;&nbsp;total: (Number) total number of transactions,\
-}</p>
-<h4 id="example_11">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getHotColdWalletTransferList&quot;,&quot;params&quot;:[0,100],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: {
-        &quot;txs&quot;: [{
-            &quot;type&quot;: &quot;eth_ColdToHot&quot;,
-            &quot;nonce_or_txid&quot;: &quot;0&quot;,
-            &quot;amount&quot;: &quot;100000&quot;,
-            &quot;user_addr&quot;: &quot;&quot;,
-            &quot;addr&quot;: &quot;&quot;,
-            &quot;signer&quot;: [&quot;0x6B6C3A1eC5C689C3dd158b1a6E8Bc722373a2BfA&quot;],
-            &quot;has_signed&quot;: true,
-            &quot;need&quot;: 2,
-            &quot;status&quot;: &quot;doing&quot;
-        }, {
-            &quot;type&quot;: &quot;eth_HotToCold&quot;,
-            &quot;nonce_or_txid&quot;: &quot;0&quot;,
-            &quot;user_addr&quot;: &quot;&quot;,
-            &quot;addr&quot;: &quot;&quot;,
-            &quot;status&quot;: &quot;finished&quot;
-        }],
-        &quot;total&quot;: 2
-    }
-}
-</code></pre>
-
-<h3 id="getprofitsplitlist">getProfitSplitList</h3>
-<p>Get profit split operations list.</p>
-<h4 id="parameters_11">Parameters</h4>
-<p>(1) skip:(Number) the number of leading operations to be ignored\
-(2) count:(Number) the maximum number of operations to return</p>
-<h4 id="returns_11">Returns</h4>
-<p>JSON object:\
-{\
-&nbsp;&nbsp;txs: (Array of JSON objects) transactions in requested range\
-&nbsp;&nbsp;&nbsp;&nbsp;[\
-&nbsp;&nbsp;&nbsp;&nbsp;For doing request:\
-&nbsp;&nbsp;&nbsp;&nbsp;{\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nonce_or_txid:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user_addr:(string) user address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to_addr:(string) money to address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;need:(Number) total number of signatures needed,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signer:(array of string) list of members who have signed,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;has_signed:(bool) whether current member has signed or not,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status:(string) "doing",\
-&nbsp;&nbsp;&nbsp;&nbsp;},\
-&nbsp;&nbsp;&nbsp;&nbsp;For finished request:\
-&nbsp;&nbsp;&nbsp;&nbsp;{\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nonce_or_txid:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user_addr:(string) user address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to_addr:(string) money to address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status:(string) "finished",\
-&nbsp;&nbsp;&nbsp;&nbsp;}...]\
-&nbsp;&nbsp;total: (Number) total number of transactions,\
-}</p>
-<h4 id="example_12">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getProfitSplitList&quot;,&quot;params&quot;:[0,100],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: {
-        &quot;txs&quot;: [{
-            &quot;type&quot;: &quot;eth_SplitProfit&quot;,
-            &quot;nonce_or_txid&quot;: &quot;1&quot;,
-            &quot;amount&quot;: &quot;100&quot;,
-            &quot;user_addr&quot;: &quot;&quot;,
-            &quot;addr&quot;: &quot;&quot;,
-            &quot;status&quot;: &quot;finished&quot;
-        }],
-        &quot;total&quot;: 1
-    }
-}
-</code></pre>
-
-<h3 id="getuseroperationlist">getUserOperationList</h3>
-<p>Get user mint/burn operations list.</p>
-<h4 id="parameters_12">Parameters</h4>
-<p>(1) skip:(Number) the number of leading operations to be ignored\
-(2) count:(Number) the maximum number of operations to return</p>
-<h4 id="returns_12">Returns</h4>
-<p>JSON object:\
-{\
-&nbsp;&nbsp;txs: (Array of JSON objects) transactions in requested range\
-&nbsp;&nbsp;&nbsp;&nbsp;[\
-&nbsp;&nbsp;&nbsp;&nbsp;For doing request:\
-&nbsp;&nbsp;&nbsp;&nbsp;{\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nonce_or_txid:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user_addr:(string) user address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to_addr:(string) money to address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;need:(Number) total number of signatures needed,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signer:(array of string) list of members who have signed,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;has_signed:(bool) whether current member has signed or not,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status:(string) "doing",\
-&nbsp;&nbsp;&nbsp;&nbsp;},\
-&nbsp;&nbsp;&nbsp;&nbsp;For finished request:\
-&nbsp;&nbsp;&nbsp;&nbsp;{\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nonce_or_txid:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user_addr:(string) user address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to_addr:(string) money to address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status:(string) "finished",\
-&nbsp;&nbsp;&nbsp;&nbsp;}...]\
-&nbsp;&nbsp;total: (Number) total number of transactions,\
-}</p>
-<h4 id="example_13">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getUserOperationList&quot;,&quot;params&quot;:[0,100],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: {
-        &quot;txs&quot;: [{
-            &quot;type&quot;: &quot;eth_mint&quot;,
-            &quot;nonce_or_txid&quot;: &quot;0x0002a128139692f866b6a1615ce2c40ad337796fc0ca6e51cc7eb6e30baab760&quot;,
-            &quot;amount&quot;: &quot;1000000000000000&quot;,
-            &quot;user_addr&quot;: &quot;0x65CF2b2c91e6eff901F10ab7363ae58cf1bfCCc5&quot;,
-            &quot;to_addr&quot;: &quot;0x65CF2b2c91e6eff901F10ab7363ae58cf1bfCCc5&quot;,
-            &quot;signer&quot;: [&quot;fafa&quot;],
-            &quot;has_signed&quot;: true,
-            &quot;need&quot;: 2,
-            &quot;status&quot;: &quot;doing&quot;
-        }, {
-            &quot;type&quot;: &quot;btc_mint&quot;,
-            &quot;nonce_or_txid&quot;: &quot;ab68b057429271ac11a860002264c77e074d1125e3ee30d865e5276a488fad90&quot;,
-            &quot;amount&quot;: &quot;100000&quot;,
-            &quot;user_addr&quot;: &quot;0x81f3521d71990945b99e1c592750d7157f2b544f&quot;,
-            &quot;to_addr&quot;: &quot;0x81f3521d71990945b99e1c592750d7157f2b544f&quot;,
-            &quot;status&quot;: &quot;finished&quot;
-        }, {
-            &quot;type&quot;: &quot;eth_mint&quot;,
-            &quot;nonce_or_txid&quot;: &quot;0xe06818b9da4feef5cd590bd68aa23f13e29ef49354ecdd1ae18b11074bf47478&quot;,
-            &quot;amount&quot;: &quot;1000000000000000&quot;,
-            &quot;user_addr&quot;: &quot;0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5&quot;,
-            &quot;to_addr&quot;: &quot;0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5&quot;,
-            &quot;status&quot;: &quot;finished&quot;
-        }, {
-            &quot;type&quot;: &quot;cUSDT_mint&quot;,
-            &quot;nonce_or_txid&quot;: &quot;0xf1685c53cf641b330d580e9a38f783d1ad875250ffae49d182d7189c9de7907e&quot;,
-            &quot;amount&quot;: &quot;100000&quot;,
-            &quot;user_addr&quot;: &quot;0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5&quot;,
-            &quot;to_addr&quot;: &quot;0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5&quot;,
-            &quot;status&quot;: &quot;finished&quot;
-        }, {
-            &quot;type&quot;: &quot;withdraw&quot;,
-            &quot;nonce_or_txid&quot;: &quot;af6e2107fe26a54f84f234941db111afea9de9c9d1caa4d18778fcf22fe12247&quot;,
-            &quot;amount&quot;: &quot;100000&quot;,
-            &quot;user_addr&quot;: &quot;&quot;,
-            &quot;to_addr&quot;: &quot;&quot;,
-            &quot;status&quot;: &quot;finished&quot;
-        }],
-        &quot;total&quot;: 5
-    }
-}
-</code></pre>
-
 <h3 id="getspecificuseroperationlist">getSpecificUserOperationList</h3>
 <p>Get user mint/burn operations list of specific user.</p>
-<h4 id="parameters_13">Parameters</h4>
-<p>(1) data:(JSON Object) the query detail\
-(2) skip:(Number) the number of leading operations to be ignored\
-(3) count:(Number) the maximum number of operations to return</p>
-<h4 id="returns_13">Returns</h4>
-<p>JSON object:\
-{\
-&nbsp;&nbsp;txs: (Array of JSON objects) transactions in requested range\
-&nbsp;&nbsp;&nbsp;&nbsp;[\
-&nbsp;&nbsp;&nbsp;&nbsp;For doing request:\
-&nbsp;&nbsp;&nbsp;&nbsp;{\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nonce_or_txid:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user_addr:(string) user address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to_addr:(string) money to address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;need:(Number) total number of signatures needed,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signer:(array of string) list of members who have signed,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;has_signed:(bool) whether current member has signed or not,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status:(string) "doing",\
-&nbsp;&nbsp;&nbsp;&nbsp;},\
-&nbsp;&nbsp;&nbsp;&nbsp;For finished request:\
-&nbsp;&nbsp;&nbsp;&nbsp;{\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nonce_or_txid:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user_addr:(string) user address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to_addr:(string) money to address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status:(string) "finished",\
-&nbsp;&nbsp;&nbsp;&nbsp;}...]\
-&nbsp;&nbsp;total: (Number) total number of transactions,\
-}</p>
-<h4 id="example_14">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getSpecificUserOperationList&quot;,&quot;params&quot;:[{&quot;address&quot;:&quot;0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5&quot;,&quot;status&quot;:[&quot;doing&quot;,&quot;finished&quot;],&quot;types&quot;:[&quot;eth_mint&quot;,&quot;erc20_mint&quot;]},0,100],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
+<h4 id="parameters">Parameters</h4>
+<p>(1) data:(JSON Object) the query detail</p>
+<pre><code class="language-bash">{
+    &quot;type&quot;: &quot;mint&quot; | &quot;burn&quot;
+    &quot;token&quot;: &quot;btc&quot; | &quot;eth&quot; | lowercase erc20 address
+    &quot;defi&quot;: conflux defi address (for shuttleflow frontend, hard code zero address)
+    &quot;address&quot;: user conflux address
+    &quot;status&quot;: [&quot;doing&quot;, &quot;finished&quot;]
+}
+</code></pre>
+<p>(2) offset:(Number) the number of leading operations to be ignored</p>
+<p>(3) count:(Number) the maximum number of operations to return, &lt;= 100</p>
+<h4 id="returns">Returns</h4>
+<h4 id="example">Example</h4>
+<pre><code class="language-bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getSpecificUserOperationList&quot;,&quot;params&quot;:[{&quot;type&quot;:&quot;mint&quot;,&quot;token&quot;:&quot;eth&quot;,&quot;defi&quot;:&quot;0x0000000000000000000000000000000000000000&quot;,&quot;address&quot;:&quot;0x1f04dcc0432b2df7ce604f0ad4736cadf5ed04ea&quot;,&quot;status&quot;:[&quot;doing&quot;,&quot;finished&quot;]},0,10],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; https://dev.shuttleflow.io
+
 {
     &quot;jsonrpc&quot;: &quot;2.0&quot;,
     &quot;id&quot;: 1,
     &quot;result&quot;: {
         &quot;txs&quot;: [{
-            &quot;type&quot;: &quot;eth_mint&quot;,
-            &quot;nonce_or_txid&quot;: &quot;0xe06818b9da4feef5cd590bd68aa23f13e29ef49354ecdd1ae18b11074bf47478&quot;,
-            &quot;amount&quot;: &quot;1000000000000000&quot;,
-            &quot;user_addr&quot;: &quot;0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5&quot;,
-            &quot;to_addr&quot;: &quot;0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5&quot;,
-            &quot;status&quot;: &quot;finished&quot;
+            &quot;token&quot;: &quot;eth&quot;,
+            &quot;type&quot;: &quot;cETH_mint&quot;,
+            &quot;nonce_or_txid&quot;: &quot;0xf5fd4b2936d18395c4c6c1f282cef725c22770edf79029bbda97ee8d623222c2&quot;,
+            &quot;amount&quot;: &quot;490000000000000000&quot;, 
+            &quot;user_addr&quot;: &quot;0x135d73d6ce217f8fe255f98e1589158972d8adc3&quot;,
+            &quot;defi&quot;: &quot;0x0000000000000000000000000000000000000000&quot;,
+            &quot;to_addr&quot;: &quot;0x135d73d6ce217f8fe255f98e1589158972d8adc3&quot;, 
+            &quot;status&quot;: &quot;finished&quot;,
+            &quot;settled_tx&quot;: &quot;0xb706503e8bdbc0fba10040aa59fda3d0c7732967fc08591ff03df6102cbb1b6c&quot;
         }, {
-            &quot;type&quot;: &quot;eth_mint&quot;,
-            &quot;nonce_or_txid&quot;: &quot;0x0002a128139692f866b6a1615ce2c40ad337796fc0ca6e51cc7eb6e30baab760&quot;,
-            &quot;amount&quot;: &quot;1000000000000000&quot;,
-            &quot;user_addr&quot;: &quot;0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5&quot;,
-            &quot;to_addr&quot;: &quot;0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5&quot;,
-            &quot;status&quot;: &quot;finished&quot;
+            &quot;token&quot;: &quot;eth&quot;,
+            &quot;type&quot;: &quot;cETH_mint&quot;,
+            &quot;nonce_or_txid&quot;: &quot;0x720549e44b83bb076a3f0ab8b118457de1f59c1aab9ec3ef56217107bc51adf7&quot;,
+            &quot;amount&quot;: &quot;95000000000000000&quot;,
+            &quot;user_addr&quot;: &quot;0x135d73d6ce217f8fe255f98e1589158972d8adc3&quot;,
+            &quot;defi&quot;: &quot;0x0000000000000000000000000000000000000000&quot;,
+            &quot;to_addr&quot;: &quot;0x135d73d6ce217f8fe255f98e1589158972d8adc3&quot;,
+            &quot;status&quot;: &quot;finished&quot;,
+            &quot;settled_tx&quot;: &quot;0x5912e0a5177a90547cc792a1bf63a4b81f0a775d819e3ffecc93ac63b3c0c346&quot;
+        }, {
+            &quot;token&quot;: &quot;eth&quot;,
+            &quot;type&quot;: &quot;cETH_mint&quot;,
+            &quot;nonce_or_txid&quot;: &quot;0x113f4a0304b196be1de746d6f72d3e3abd7af87e68ed2f0bed4447ae86b7be51&quot;,
+            &quot;amount&quot;: &quot;95000000000000000&quot;,
+            &quot;user_addr&quot;: &quot;0x135d73d6ce217f8fe255f98e1589158972d8adc3&quot;,
+            &quot;defi&quot;: &quot;0x0000000000000000000000000000000000000000&quot;,
+            &quot;to_addr&quot;: &quot;0x135d73d6ce217f8fe255f98e1589158972d8adc3&quot;,
+            &quot;status&quot;: &quot;finished&quot;,
+            &quot;settled_tx&quot;: &quot;0xdb404e46caebd987ef6abaf7578fc2d42445ad1db1c361a56b687dcd70271957&quot;
+        }, {
+            &quot;token&quot;: &quot;eth&quot;,
+            &quot;type&quot;: &quot;cETH_mint&quot;,
+            &quot;nonce_or_txid&quot;: &quot;0x2dfd88f434280dcf6f5e01d977ddede4b083f19dfb6384aee03ed47b12272dd3&quot;,
+            &quot;amount&quot;: &quot;195000000000000000&quot;,
+            &quot;user_addr&quot;: &quot;0x135d73d6ce217f8fe255f98e1589158972d8adc3&quot;,
+            &quot;defi&quot;: &quot;0x0000000000000000000000000000000000000000&quot;,
+            &quot;to_addr&quot;: &quot;0x135d73d6ce217f8fe255f98e1589158972d8adc3&quot;,
+            &quot;status&quot;: &quot;finished&quot;,
+            &quot;settled_tx&quot;: &quot;0x2721c5013fad1c49b88edb7409614b9cd532b8225f6e3d54f77d262eec659668&quot;
+        }, {
+            &quot;token&quot;: &quot;eth&quot;,
+            &quot;type&quot;: &quot;cETH_mint&quot;,
+            &quot;nonce_or_txid&quot;: &quot;0xdb38ce8d9512b2a736ba9889dca63ff2b0939621b654fc615241fe886bde74a5&quot;,
+            &quot;amount&quot;: &quot;95000000000000000&quot;,
+            &quot;user_addr&quot;: &quot;0x135d73d6ce217f8fe255f98e1589158972d8adc3&quot;,
+            &quot;defi&quot;: &quot;0x0000000000000000000000000000000000000000&quot;,
+            &quot;to_addr&quot;: &quot;0x135d73d6ce217f8fe255f98e1589158972d8adc3&quot;,
+            &quot;status&quot;: &quot;finished&quot;,
+            &quot;settled_tx&quot;: &quot;0xc735ec52e425fb518610b18e3620347a868ed13baf08ae6aa212e46c8dba3751&quot;
+        }, {
+            &quot;token&quot;: &quot;eth&quot;,
+            &quot;type&quot;: &quot;cETH_mint&quot;,
+            &quot;nonce_or_txid&quot;: &quot;0x1dbe784def8f208f519128c4d83666b3be1d5675ac458c10aa609914e856d57e&quot;,
+            &quot;amount&quot;: &quot;95000000000000000&quot;,
+            &quot;user_addr&quot;: &quot;0x135d73d6ce217f8fe255f98e1589158972d8adc3&quot;,
+            &quot;defi&quot;: &quot;0x0000000000000000000000000000000000000000&quot;,
+            &quot;to_addr&quot;: &quot;0x135d73d6ce217f8fe255f98e1589158972d8adc3&quot;,
+            &quot;status&quot;: &quot;finished&quot;,
+            &quot;settled_tx&quot;: &quot;0x13bde6d88ea027b9c2c92b596a221ab235964da89ced66ea4e92d7958486864c&quot;
+        }, {
+            &quot;token&quot;: &quot;eth&quot;,
+            &quot;type&quot;: &quot;cETH_mint&quot;,
+            &quot;nonce_or_txid&quot;: &quot;0xc01a4d86ac352c7980d76e9edb419ffb8db39255cc4cba47b95295e232371816&quot;,
+            &quot;amount&quot;: &quot;95000000000000000&quot;,
+            &quot;user_addr&quot;: &quot;0x135d73d6ce217f8fe255f98e1589158972d8adc3&quot;,
+            &quot;defi&quot;: &quot;0x0000000000000000000000000000000000000000&quot;,
+            &quot;to_addr&quot;: &quot;0x135d73d6ce217f8fe255f98e1589158972d8adc3&quot;,
+            &quot;status&quot;: &quot;finished&quot;,
+            &quot;settled_tx&quot;: &quot;0x268bab123f111f23ffac1716f3bf7bed6b0124772eb285406123b727b90a3b10&quot;
         }],
-        &quot;total&quot;: 2
+        &quot;total&quot;: 7
     }
 }
 </code></pre>
+<h3 id="getuserreceivewalleteth">getUserReceiveWalletEth</h3>
+<p>Get user eth receive wallet.</p>
+<h4 id="parameters_1">Parameters</h4>
+<p>(1) address: (String) user conflux address</p>
+<p>(2) defi: (String) conflux defi address (for shuttleflow frontend, hard code zero address)</p>
+<h4 id="returns_1">Returns</h4>
+<p>String, user ethereum receive wallet address</p>
+<h3 id="example_1">Example</h3>
+<pre><code class="language-bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getUserReceiveWalletEth&quot;,&quot;params&quot;:[&quot;0x1d9fdbe7cad3d82cc539b3b7c8bd8a8437ad5b58&quot;, &quot;0x0000000000000000000000000000000000000000&quot;],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; https://dev.shuttleflow.io
 
-<h3 id="getwallettransferlist">getWalletTransferList</h3>
-<p>Get wallet transfer operation list during custodian member changing.</p>
-<h4 id="parameters_14">Parameters</h4>
-<p>(1) skip:(Number) the number of leading operations to be ignored\
-(2) count:(Number) the maximum number of operations to return</p>
-<h4 id="returns_14">Returns</h4>
-<p>JSON object:\
-{\
-&nbsp;&nbsp;txs: (Array of JSON objects) transactions in requested range\
-&nbsp;&nbsp;&nbsp;&nbsp;[\
-&nbsp;&nbsp;&nbsp;&nbsp;For doing request:\
-&nbsp;&nbsp;&nbsp;&nbsp;{\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nonce_or_txid:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user_addr:(string) user address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to_addr:(string) money to address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;need:(Number) total number of signatures needed,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signer:(array of string) list of members who have signed,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;has_signed:(bool) whether current member has signed or not,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status:(string) "doing",\
-&nbsp;&nbsp;&nbsp;&nbsp;},\
-&nbsp;&nbsp;&nbsp;&nbsp;For finished request:\
-&nbsp;&nbsp;&nbsp;&nbsp;{\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nonce_or_txid:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user_addr:(string) user address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to_addr:(string) money to address,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status:(string) "finished",\
-&nbsp;&nbsp;&nbsp;&nbsp;}...]\
-&nbsp;&nbsp;total: (Number) total number of transactions,\
-}</p>
-<h4 id="example_15">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getWalletTransferList&quot;,&quot;params&quot;:[0,100],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: {
-        &quot;txs&quot;: [{
-            &quot;type&quot;: &quot;ProfitTransfer&quot;,
-            &quot;nonce_or_txid&quot;: &quot;3&quot;,
-            &quot;amount&quot;: &quot;NaN&quot;,
-            &quot;user_addr&quot;: &quot;2N9rEmrpFA1b7HKZiDghnNEmTy6MDrgV3aC&quot;,
-            &quot;to_addr&quot;: &quot;2N7tUaxmwq9rwtXZUYymiYXnn9s7Vd2hMZp&quot;,
-            &quot;status&quot;: &quot;finished&quot;
-        }, {
-            &quot;type&quot;: &quot;HotTransfer&quot;,
-            &quot;nonce_or_txid&quot;: &quot;ab68b057429271ac11a860002264c77e074d1125e3ee30d865e5276a488fad90&quot;,
-            &quot;amount&quot;: &quot;60000&quot;,
-            &quot;user_addr&quot;: &quot;2MsPJwNqdeUHvxM3munWBxtCE2WncF9PKbZ&quot;,
-            &quot;to_addr&quot;: &quot;2N7UpxpCo6gEpPdjksZPPE9GjTq8JY1KQpz&quot;,
-            &quot;status&quot;: &quot;finished&quot;
-        }],
-        &quot;total&quot;: 2
-    }
-}
+{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;result&quot;:&quot;0x4e0095dc1fed099ed73a749def57905387a11271&quot;}
 </code></pre>
+<h3 id="getuserreceivewalletbtc">getUserReceiveWalletBtc</h3>
+<p>Get user btc receive wallet.</p>
+<h4 id="parameters_2">Parameters</h4>
+<p>(1) address: (String) user conflux address</p>
+<p>(2) defi: (String) conflux defi address (for shuttleflow frontend, hard code zero address)</p>
+<h4 id="returns_2">Returns</h4>
+<p>String, user bitcoin receive wallet address</p>
+<h3 id="example_2">Example</h3>
+<pre><code class="language-bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getUserReceiveWalletBtc&quot;,&quot;params&quot;:[&quot;0x1d9fdbe7cad3d82cc539b3b7c8bd8a8437ad5b58&quot;, &quot;0x0000000000000000000000000000000000000000&quot;],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; https://dev.shuttleflow.io
 
-<h3 id="getcustodianinfo">getCustodianInfo</h3>
-<p>Get information of custodian members.</p>
-<h4 id="parameters_15">Parameters</h4>
-<p>None.</p>
-<h4 id="returns_15">Returns</h4>
-<p>JSON objects:\
-{\
-&nbsp;&nbsp;custodians:(Array of JSON objects):\
-&nbsp;&nbsp;&nbsp;&nbsp;[{\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:(string),\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keys:(JSON object) keys of custodian member,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;join_epoch:(Number) epoch the member joined the custodian,\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sig_cnt:(string) times of multi-signature the member participated in,\
-&nbsp;&nbsp;&nbsp;&nbsp;}, ...],\
-&nbsp;&nbsp;op_cnt:(Number) total number of multi-signature operations,\
-}</p>
-<h4 id="example_16">Example</h4>
-<pre><code class="bash">$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getCustodianInfo&quot;,&quot;params&quot;:[],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.20.168:8001
-{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;id&quot;: 1,
-    &quot;result&quot;: {
-        &quot;custodians&quot;: [{
-            &quot;name&quot;: &quot;fafa&quot;,
-            &quot;keys&quot;: {
-                &quot;cfx_hot&quot;: &quot;0x81f3521d71990945b99e1c592750d7157f2b544f&quot;,
-                &quot;cfx_cold&quot;: &quot;0x81f3521d71990945b99e1c592750d7157f2b544f&quot;,
-                &quot;eth_hot&quot;: &quot;0x6B6C3A1eC5C689C3dd158b1a6E8Bc722373a2BfA&quot;,
-                &quot;eth_cold&quot;: &quot;0x6B6C3A1eC5C689C3dd158b1a6E8Bc722373a2BfA&quot;,
-                &quot;btc_hot&quot;: &quot;021a72579a46e91c11cc01f8e072c4a4eedfc477bfc8f2925e02ec006420b4cfc8&quot;,
-                &quot;btc_cold&quot;: &quot;039802c21509fdcec599680c04a7e93234a954997184aeccaf96006fe8c3c68b74&quot;
-            },
-            &quot;join_epoch&quot;: 1578246,
-            &quot;sig_cnt&quot;: 5
-        }, {
-            &quot;name&quot;: &quot;ppd&quot;,
-            &quot;keys&quot;: {
-                &quot;cfx_hot&quot;: &quot;0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5&quot;,
-                &quot;cfx_cold&quot;: &quot;0x65cf2b2c91e6eff901f10ab7363ae58cf1bfccc5&quot;,
-                &quot;eth_hot&quot;: &quot;0x578Dd2BFc41bb66e9f0ae0802C613996440C9597&quot;,
-                &quot;eth_cold&quot;: &quot;0x578Dd2BFc41bb66e9f0ae0802C613996440C9597&quot;,
-                &quot;btc_hot&quot;: &quot;02af37a0dbdb234f8f522b8980c9100b4a9cc989be54a09354a12f4122a7e2b87c&quot;,
-                &quot;btc_cold&quot;: &quot;03919638867f7e32c58d902a7b95ccfe1bfd928fc44544e0414be99f6addcee790&quot;
-            },
-            &quot;join_epoch&quot;: 1578246,
-            &quot;sig_cnt&quot;: 5
-        }, {
-            &quot;name&quot;: &quot;autumn&quot;,
-            &quot;keys&quot;: {
-                &quot;cfx_hot&quot;: &quot;0x2338f8646aeaa5a32d374fae49ee7aae6bca1efc&quot;,
-                &quot;cfx_cold&quot;: &quot;0x2338f8646aeaa5a32d374fae49ee7aae6bca1efc&quot;,
-                &quot;eth_hot&quot;: &quot;0xF0D8ABE44f98F198F1DB255A7833F27a28774D35&quot;,
-                &quot;eth_cold&quot;: &quot;0xF0D8ABE44f98F198F1DB255A7833F27a28774D35&quot;,
-                &quot;btc_hot&quot;: &quot;028ff2d81abce71ab8b910f4b604b976907f7310cf8970093f09bb7726f14d7534&quot;,
-                &quot;btc_cold&quot;: &quot;028ff2d81abce71ab8b910f4b604b976907f7310cf8970093f09bb7726f14d7534&quot;
-            },
-            &quot;join_epoch&quot;: 1579865,
-            &quot;sig_cnt&quot;: 0
-        }],
-        &quot;op_cnt&quot;: 18
-    }
-}
+{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;result&quot;:&quot;2MutEXoJsQMm4jviPVchfm2HuZsbusVizCz&quot;}
 </code></pre>
-
-<h3 id="getbounds">getBounds</h3>
-<p>Get bounds of tokens.</p>
-<h4 id="parameters_16">Parameters</h4>
-<p>None.</p>
-<h4 id="returns_16">Returns</h4>
-<p>JSON object</p>
-<h4 id="example_17">Example</h4>
-<pre><code>$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getBounds&quot;,&quot;params&quot;:[],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; http://52.141.21.174:8001
-{
- &quot;eth&quot;: {
-  &quot;lower_bound&quot;: &quot;0&quot;,
-  &quot;upper_bound&quot;: &quot;10000000000000000&quot;
- },
- &quot;btc&quot;: {
-  &quot;lower_bound&quot;: &quot;0&quot;,
-  &quot;upper_bound&quot;: &quot;10000000000&quot;
- },
- &quot;usdt&quot;: {
-  &quot;lower_bound&quot;: &quot;0&quot;,
-  &quot;upper_bound&quot;: &quot;10000000000000000&quot;
- }
-}
+<h3 id="gettokenlist">getTokenList</h3>
+<p>Get token list supported by shuttleflow</p>
+<h3 id="parameters_3">Parameters</h3>
+<p>null</p>
+<h3 id="returns_3">Returns</h3>
+<p>List of Object</p>
+<h3 id="example_3">Example</h3>
+<pre><code class="language-bash">curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getTokenList&quot;,&quot;params&quot;:[&quot;&quot;],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; https://dev.shuttleflow.io 
 </code></pre>
+<h3 id="getdefilist">getDefiList</h3>
+<p>Get defi list supported by shuttleflow</p>
+<h3 id="parameters_4">Parameters</h3>
+<p>null</p>
+<h3 id="returns_4">Returns</h3>
+<p>List of Object</p>
+<h3 id="example_4">Example</h3>
+<pre><code class="language-bash">curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getDefiList&quot;,&quot;params&quot;:[&quot;&quot;],&quot;id&quot;:1}' -H &quot;Content-Type: application/json&quot; https://dev.shuttleflow.io
+</code></pre>
+<h2 id="public-nodes">Public Nodes</h2>
+<p>Now we provide public api endpoint for both mainnet and testnet of shuttleflow:</p>
+<p>Mainnet: https://open-api.shuttleflow.io</p>
+<p>Testnet: https://dev.shuttleflow.io</p>
               
             </div>
           </div>
@@ -910,7 +332,7 @@ $ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -920,7 +342,7 @@ $ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -934,6 +356,11 @@ $ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
       <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
