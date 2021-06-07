@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Token base - Conflux DEX Documentation</title>
+  <title>Deposit relayer - Conflux DEX Documentation</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Token base";
-    var mkdocs_page_input_path = "shuttleflow/token_base.md";
+    var mkdocs_page_name = "Deposit relayer";
+    var mkdocs_page_input_path = "shuttleflow/deposit_relayer.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -101,7 +101,7 @@
     
       
     
-    <li>Token base</li>
+    <li>Deposit relayer</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -112,116 +112,28 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="tokenbase">TokenBase</h3>
-<p><code>TokenBase</code> is the cross chain token contract (cToken).
-It follows <a href="https://eips.ethereum.org/EIPS/eip-777">ERC777 standard</a> except the <code>burn</code> function.</p>
-<h4 id="owership-and-autorities">Owership and autorities</h4>
-<ul>
-<li>Owner of cToken is initially who deployed it (Shuttleflow admin), then the ownership will be transfered to Shuttleflow governance contract. Only owner of the contract is able to mint cToken.</li>
-<li>Only pausers are able to pause/unpause the cToken contract. Initially, the pauser 
-of cToken is Shuttleflow admin.</li>
-</ul>
+                <h3 id="depositrelayer">DepositRelayer</h3>
+<p><code>DepositRelayer</code> is used for user to initiate a crosschain transaction.</p>
 <h4 id="contract-abi">Contract ABI</h4>
-<p><a href="../contracts/TokenBaseABI.json">TokenBase ABI</a></p>
-<h4 id="contract-interface">Contract Interface</h4>
-<pre><code class="language-solidity">pragma solidity 0.5.11;
-
-interface ITokenBase {
-    function name() external view returns (string memory);
-
-    function symbol() external view returns (string memory);
-
-    function decimals() external pure returns (uint8);
-
-    function granularity() external pure returns (uint256);
-
-    function totalSupply() external view returns (uint256);
-
-    function balanceOf(address tokenHolder) external view returns (uint256);
-
-    function send(
-        address recipient,
-        uint256 amount,
-        bytes calldata data
-    ) external;
-
-    function transfer(address recipient, uint256 amount)
-        external
-        returns (bool);
-
-    function isOperatorFor(address operator, address tokenHolder)
-        external
-        view
-        returns (bool);
-
-    function authorizeOperator(address operator) external;
-
-    function revokeOperator(address operator) external;
-
-    function defaultOperators() external view returns (address[] memory);
-
-    function operatorSend(
-        address sender,
-        address recipient,
-        uint256 amount,
-        bytes calldata data,
-        bytes calldata operatorData
-    ) external;
-
-    function allowance(address holder, address spender)
-        external
-        view
-        returns (uint256);
-
-    function approve(address spender, uint256 value) external returns (bool);
-
-    function transferFrom(
-        address holder,
-        address recipient,
-        uint256 amount
-    ) external returns (bool);
-
-    function mint(
-        address account,
-        uint256 amount,
-        address fee_address,
-        uint256 fee,
-        address defi,
-        string calldata tx_id
-    ) external returns (bool);
-
-    function burn(
-        address user_addr,
-        uint256 amount,
-        uint256 expected_fee,
-        string calldata addr,
-        address defi_relayer
-    ) external returns (bool);
-}
-</code></pre>
+<p><a href="../contracts/DepositRelayerABI.json">DepositRelayer ABI</a></p>
 <h4 id="core-functions">Core Functions</h4>
-<p>TokenBase implements the functions of ERC777 standard, with a different burn function:</p>
-<pre><code class="language-solidity">function burn(
-        address user_addr, // user conflux address
-        uint256 amount, // burn amount
-        uint256 expected_fee, // expected burn fee, in 18 decimals
-        string memory addr, // external chain receive address
-        address defi_relayer // external chain defi relayer address
+<pre><code class="language-solidity">function deposit(address confluxAddr, address defiAddr) public payable;
+</code></pre>
+<p>For users want to crosschain native token such as ETH/BNB, they should call this function and transfer the value they want to crosschain. </p>
+<p><code>confluxAddr</code> is user's Conflux recipient address in hex format.</p>
+<p><code>defiAddr</code> should be zero address.</p>
+<pre><code class="language-solidity">function depositToken(
+    address tokenAddr,
+    address confluxAddr,
+    address defiAddr,
+    uint256 value
 ) public;
 </code></pre>
-<p>Burn cToken from sender's address.</p>
-<p><code>user_addr</code> is used to logging, in case Conflux Defi burn cToken for normal user.</p>
-<p><code>amount</code> should be larger than <code>burn_fee</code> and <code>minimal_burn_value</code> in <a href="../custodian_core/">CustodianCore</a> contract(Note here the decimals 
-of <code>amount</code> is 18 and decimals of <code>burn_fee</code> and <code>minimal_burn_value</code> in CustoidanCore contract is reference token's decimal, 
-the smart contract will do the decimal conversion for comparison). Besides, if the fee is higher than
-<code>expected_fee</code>, the burn transaction will revert.</p>
-<p><code>addr</code> is a ethereum or bitcoin address, which the reference token will be sent to.</p>
-<p>If it is a burnt of eth/erc20 tokens, user can specify a <code>defi_relayer</code>, which will send 
-the eth/erc20 to defi_relayer and logging the user's information. See more in <a href="../defi_relayer/">defi relayer</a>.</p>
-<p>If user does not want to use <code>defi_relayer</code>, fill it with zero address.</p>
-<p>For example,<code>burn(cusdt_address, 1e18, 1e16, user_eth_addr, zero_addr)</code> will burn 1 cUSDT and user 
-is willing to pay no more than 0.01 cUSDT as burn fee to sponsor. The burned usdt will directly 
-sent to user_eth_addr.</p>
+<p>For users want to crosschain ERC20 token, they should first approve enough allowance for DepositRelayer contract, and then call this function. </p>
+<p><code>tokenAddr</code> is the ERC20 token address.</p>
+<p><code>confluxAddr</code> is user's Conflux recipient address in hex format.</p>
+<p><code>defiAddr</code> should be zero address.</p>
+<p><code>value</code> is amount of ERC20 token user want to crosschain.</p>
               
             </div>
           </div>

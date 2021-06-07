@@ -55,9 +55,9 @@
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../">Introduction</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../json_rpc/">JSON RPC</a>
+                    <li class="toctree-l1"><a class="" href="../json_rpc.md">JSON RPC</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../sdk/">Conflux Crosschain SDK</a>
+                    <li class="toctree-l1"><a class="" href="../sdk.md">Conflux Crosschain SDK</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">BoomFlow</span></p>
@@ -120,13 +120,14 @@ custodian nodes, including:
 * The address of all cTokens and their configurations such as mint/burn fee
 * The information of token sponsors
 * The upper/lower bounds of custodian alliance's bitcoin hot wallet</p>
-<p>Ownership and authorities: 
-* At this point, the owner of CustodianCore is Conflux admin, who is enabled to modify 
-custodian node configurations and custodian membership.
-* CustodianCore is the owner of all cToken so only it has the authority to mint cTokens.</p>
-<p>Upgrade:
-* Custodian core follows proxy delegate pattern which enables upgrading contract logic without modification of 
-contract address and get rid of data migration.</p>
+<h4 id="ownership-and-authorities">Ownership and authorities</h4>
+<ul>
+<li>At this point, the owner of CustodianCore is Conflux admin, who is enabled to modify 
+custodian node configurations and custodian membership.</li>
+<li>CustodianCore is the owner of all cToken so only it has the authority to mint cTokens.</li>
+</ul>
+<h4 id="contract-abi">Contract ABI</h4>
+<p><a href="../contracts/CustodianCoreABI.json">CustodianCore ABI</a></p>
 <h4 id="core-storage-variables">Core Storage Variables</h4>
 <pre><code class="language-solidity">ITokenBase[] public token_list;
 </code></pre>
@@ -215,24 +216,6 @@ The token parameters of <code>ref</code> will also be replaced by the parameters
 </code></pre>
 <p>This function can be called by anyone.</p>
 <p>This function helps the sponsor of token <code>ref</code> to change the token parameters if the token is not in cooldown.</p>
-<pre><code class="language-solidity">function mint(
-        address defi, // conflux defi goverance contract address
-        address token, // cToken address
-        address to, // user conflux address
-        uint256 amount, // user mint address
-        uint256 fee, // user mint fee
-        string memory tx_id, // corresponding ethereum/bitcoin mint transaction hash
-        bytes[] memory signatures // signatures of custodian members
-) public;
-</code></pre>
-<p>This function can only be called by custodian member's hot wallet address.</p>
-<p>Mint cToken for a user and then send the minted cToken to receive smart contract of specific 
-defi(if user assgined) with default operator authority. This functions needs over 2/3 signatures
-  from current custodian members. The parameter <code>defi</code> is determined by user's receive wallet, when 
-  defi is zero address or assgined defi does not support assgined token, the cToken will be left in user's conflux address.</p>
-<p>For example, when defi is Boomflow contract and token is cETH address, the custodian alliance will firstly mint 
-corresponding amount of cETH to user's conflux address, and then operator send these cETH to CRCL-ETH address. Then 
-cETH will be locked in CRCL-ETH address and DEX-ETH will be minted to user.</p>
               
             </div>
           </div>
